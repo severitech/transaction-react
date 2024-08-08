@@ -5,15 +5,15 @@ import {UseGlogbalState} from '../../context/GlobalState'
 
 function TransactionForm() {
   const {addTransactions} = UseGlogbalState()
-  const [description, setDescription] = useState()
-  const [amount, setAmount] = useState(0)
+  const [description, setDescription] = useState('')
+  const [amount, setAmount] = useState('')
   const inputRef = useRef(null);
 
   const onsubmit = (e) => {
     e.preventDefault(); // Prevenir el comportamiento por defecto del formulario
     
-    const now = new Date();
-    const currentDateTime = `${now.toLocaleDateString()}`;
+    const now = new Date()
+    ;const currentDateTime = `${now.getDate()}/${now.getMonth() + 1}`;
     // Verificar que los campos no estén vacíos
     if (description.trim() !== '' && amount !== '') {
       // Añadir la transacción
